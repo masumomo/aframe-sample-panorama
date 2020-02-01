@@ -42,7 +42,7 @@
     console.log("START :", handleOrientation);
     something.value = `START handleOrientation`;
     
-    deviceorientation.value = `START deviceorientation ${event.alpha} / ${event.beta} / ${event.gamma}`;
+    deviceorientation.etAttribute = ("value",  `START deviceorientation ${event.alpha} / ${event.beta} / ${event.gamma}`);
 
   }
 
@@ -56,7 +56,7 @@
       if (camera) {
         let position = camera.getAttribute("position");
         let rotation = camera.getAttribute("rotation");
-        devicemotion.value = `START devicemotion ${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`;
+        devicemotion.setAttribute = ("value", `START devicemotion ${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`);
         console.log("START :", devicemotion);
 
         position.x += event.acceleration.x;
@@ -71,7 +71,7 @@
     
 
     console.log("START3-1 :", something.value);
-    something.value = `SET UP!`;
+    something.setAttribute = ("value",`SET UP!`);
     console.log("START1 :", devicemotion);
     console.log("START2 :", deviceorientation);
     console.log("START3-2 :", something.value);
