@@ -38,7 +38,9 @@
         src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg"
         rotation="0 0 0"
         opacity="0.5"
-      ></a-sky>
+      ></a-sky> 
+      <a-entity id="camera" camera look-controls raycaster="objects: .collidable; far: 0.5;" collider-check rotation="0 0 0">
+      </a-entity>
     </a-scene>
   </body>
   <script>
