@@ -34,13 +34,12 @@
     </a-scene>
   </body>
   <script>
-  const something = document.body.querySelector("#something");
-  const devicemotion = document.body.querySelector("#devicemotion");
-  const deviceorientation = document.body.querySelector("#deviceorientation");
+  let something = document.body.querySelector("#something");
+  let devicemotion = document.body.querySelector("#devicemotion");
+  let deviceorientation = document.body.querySelector("#deviceorientation");
     
   const handleOrientation = (event) => {
     console.log("START :", handleOrientation);
-    something.value = `START handleOrientation`;
     
     deviceorientation.etAttribute = ("value",  `START deviceorientation ${event.alpha} / ${event.beta} / ${event.gamma}`);
 
@@ -48,7 +47,6 @@
 
   const handleMotion = (event) =>{
     console.log("START :", handleMotion);
-    something.value = `START devicemotion`;
         
     console.log(event.acceleration.x + " m/s2");
     let camera = document.getElementById("camera");
@@ -71,9 +69,9 @@
     
 
     console.log("START3-1 :", something.getAttribute("value"));
-    something.setAttribute = ("value",`SET UP!`);
+    something.setAttribute('value',"SET UP!");
     console.log("START1 :", devicemotion);
-    console.log("START2 :", deviceorientation);
-    console.log("START3-2 :", something.value);
+    console.log("START2 :", deviceorientation); 
+    console.log("START3-2 :", something.getAttribute("value"));
   </script>
 </html>
