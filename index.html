@@ -40,6 +40,7 @@
     
   const handleOrientation = (event) => {
     console.log("START :", handleOrientation);
+    something.setAttribute('value',"SET UP! handleOrientation");
     
     deviceorientation.etAttribute = ('value'  `START deviceorientation ${event.alpha} / ${event.beta} / ${event.gamma}`);
 
@@ -47,7 +48,8 @@
 
   const handleMotion = (event) =>{
     console.log("START :", handleMotion);
-        
+    
+    something.setAttribute('value',"SET UP! handleMotion");
     console.log(event.acceleration.x + " m/s2");
     let camera = document.getElementById("camera");
 
