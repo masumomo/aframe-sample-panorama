@@ -6,7 +6,7 @@
     <a-scene>
       <a-entity id="maze" position="-4 1 -10">
         <a-text
-          position="0 -1.4 0.4"
+          position="0 -1.8 0"
           id="devicemotion"
           rotation="-90 0 0"
           value="devicemotion"
@@ -14,24 +14,16 @@
         ></a-text>
 
         <a-text
-          position="0 -1.8 0"
+          position="0 -1.8 0.4"
           id="devicemotion2"
           rotation="-90 0 0"
-          value="devicemotion"
-          color="black"
-        ></a-text>
-
-        <a-text
-          position="0 -2.2 -0.4"
-          id="deviceorientation"
-          rotation="-90 0 0"
-          value="deviceorientation"
+          value="devicemotion2"
           color="black"
         ></a-text>
 
         <a-text
           id="something"
-          position="0 -2.6 -0.8"
+          position="0 -1.8 -0.8"
           rotation="-90 0 0"
           value="something"
           color="black"
@@ -66,7 +58,7 @@
     const deviceorientation = document.body.querySelector("#deviceorientation");
     const camera = document.getElementById("camera");
 
-    const speed = 0.1;
+    const speed = 1;
     const handleOrientation = event => {
       console.log("START :", handleOrientation);
       deviceorientation.setAttribute(
@@ -84,16 +76,16 @@
       if (camera) {
         let position = camera.getAttribute("position");
         let rotation = camera.getAttribute("rotation");
-        devicemotion.setAttribute(
-          "value",
-          `START position.x ${Math.cos(((rotation.y - 90) * Math.PI) / 180) *
-            speed} `
-        );
-        devicemotion2.setAttribute(
-          "value",
-          `START position.y ${MMath.sin(((rotation.y - 90) * Math.PI) / 180) *
-            speed} `
-        );
+        // devicemotion.setAttribute(
+        //   "value",
+        //   `START position.x ${Math.cos(((rotation.y - 90) * Math.PI) / 180) *
+        //     speed} `
+        // );
+        // devicemotion2.setAttribute(
+        //   "value",
+        //   `START position.y ${MMath.sin(((rotation.y - 90) * Math.PI) / 180) *
+        //     speed} `
+        // );
         // position.x += event.acceleration.x;
         // position.z += event.acceleration.y;
 
@@ -114,10 +106,9 @@
     window.addEventListener("deviceorientation", handleOrientation, true);
     window.addEventListener("devicemotion", handleMotion, true);
 
-    console.log("START3-1 :", something.getAttribute("value"));
+    console.log("START2-1 :", something.getAttribute("value"));
     something.setAttribute("value", "SET UP!!!");
     console.log("START1-1 :", devicemotion);
-    console.log("START2-1 :", deviceorientation);
-    console.log("START3-2 :", something.getAttribute("value"));
+    console.log("START1-2 :", something.getAttribute("value"));
   </script>
 </html>
