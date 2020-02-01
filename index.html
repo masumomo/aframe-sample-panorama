@@ -39,7 +39,7 @@
         rotation="0 0 0"
         opacity="0.5"
       ></a-sky> 
-      <a-entity id="camera" camera look-controls raycaster="objects: .collidable; far: 0.5;" collider-check rotation="0 0 0">
+      <a-entity id="camera">
       </a-entity>
     </a-scene>
   </body>
@@ -74,7 +74,7 @@ const speed = 0.1;
 
       position.x += -Math.cos((rotation.y - 90) * Math.PI / 180) * speed;
       position.z += Math.sin((rotation.y - 90) * Math.PI / 180) * speed;
-        
+      
       camera.setAttribute("position", position);
     }
   }
