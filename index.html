@@ -80,19 +80,20 @@
 
       something.setAttribute("value", "SET UP! handleMotion");
       devicemotion.setAttribute("value", "SET UP! handleMotion");
-      devicemotion.setAttribute(
-        "value",
-        `START devicemotion1 ${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`
-      );
-      devicemotion2.setAttribute(
-        "value",
-        `START devicemotion2 ${event.rotationRate.alpha} / ${event.rotationRate.beta} / ${event.rotationRate.gamma}`
-      );
 
       if (camera) {
         let position = camera.getAttribute("position");
         let rotation = camera.getAttribute("rotation");
-
+        devicemotion.setAttribute(
+          "value",
+          `START position.x ${Math.cos(((rotation.y - 90) * Math.PI) / 180) *
+            speed} `
+        );
+        devicemotion2.setAttribute(
+          "value",
+          `START position.y ${MMath.sin(((rotation.y - 90) * Math.PI) / 180) *
+            speed} `
+        );
         // position.x += event.acceleration.x;
         // position.z += event.acceleration.y;
 
@@ -114,7 +115,7 @@
     window.addEventListener("devicemotion", handleMotion, true);
 
     console.log("START3-1 :", something.getAttribute("value"));
-    something.setAttribute("value", "SET UP!");
+    something.setAttribute("value", "SET UP!!!");
     console.log("START1-1 :", devicemotion);
     console.log("START2-1 :", deviceorientation);
     console.log("START3-2 :", something.getAttribute("value"));
