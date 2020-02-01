@@ -100,13 +100,16 @@
     setInterval(() => {
       const position = camera.getAttribute("position");
       const rotation = camera.getAttribute("rotation");
-      console.log("rotation :", rotation);
+      // console.log("rotation :", rotation);
       position.x += -Math.cos(((rotation.y - 90) * Math.PI) / 180) * speed;
       position.z += Math.sin(((rotation.y - 90) * Math.PI) / 180) * speed;
       camera.setAttribute("position", position);
+      devicemotionX.setAttribute("position", position);
+      // devicemotionY.setAttribute("position", position);
+      // devicemotionZ.setAttribute("position", position);
       // console.log("position :", position);
       // console.log("camera :", camera);
-    }, 100);
+    }, 50);
 
     window.addEventListener("deviceorientation", handleOrientation, true);
     window.addEventListener("devicemotion", handleMotion, true);
