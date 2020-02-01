@@ -92,9 +92,9 @@
 
         // position.x += -Math.cos(((rotation.y - 90) * Math.PI) / 180) * speed;
         // position.z += Math.sin(((rotation.y - 90) * Math.PI) / 180) * speed;
-        const x = Math.floor(event.acceleration.x * 10) / 10;
-        const y = Math.floor(event.acceleration.y * 10) / 10;
-        const z = Math.floor(event.acceleration.z * 10) / 10;
+        const x = Math.floor(event.acceleration.x * 100);
+        const y = Math.floor(event.acceleration.y * 100);
+        const z = Math.floor(event.acceleration.z * 100);
         devicemotionX.setAttribute("value", `START devicemotion-X ${x} `);
         devicemotionY.setAttribute("value", `START devicemotion Y ${y} `);
         devicemotionZ.setAttribute("value", `START devicemotion Z ${z}`);
