@@ -111,30 +111,30 @@
     // console.log("camera :", camera);
     // }, 50);
     let moving = false;
-    window.addEventListener(
-      "touchstart",
-      function() {
-        setInterval(() => {
-          if (moving) return;
-          moving = true;
-          const position = camera.getAttribute("position");
-          const rotation = camera.getAttribute("rotation");
-          console.log("rotation :", rotation);
-          position.x += -Math.cos(((rotation.y - 90) * Math.PI) / 180) * speed;
-          position.z += Math.sin(((rotation.y - 90) * Math.PI) / 180) * speed;
-          camera.setAttribute("position", position);
-        }, 50);
-      },
-      false
-    );
+    // window.addEventListener(
+    //   "touchstart",
+    //   function() {
+    setInterval(() => {
+      if (moving) return;
+      moving = true;
+      const position = camera.getAttribute("position");
+      const rotation = camera.getAttribute("rotation");
+      console.log("rotation :", rotation);
+      position.x += -Math.cos(((rotation.y - 90) * Math.PI) / 180) * speed;
+      position.z += Math.sin(((rotation.y - 90) * Math.PI) / 180) * speed;
+      camera.setAttribute("position", position);
+    }, 50);
+    // },
+    // false
+    // );
 
-    window.addEventListener(
-      "touchend",
-      function() {
-        moving = false;
-      },
-      false
-    );
+    // window.addEventListener(
+    // "touchend",
+    // function() {
+    //   moving = false;
+    // },
+    // false
+    // );
     window.addEventListener("deviceorientation", handleOrientation, true);
     window.addEventListener("devicemotion", handleMotion, true);
 
