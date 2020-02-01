@@ -110,16 +110,16 @@
     // console.log("position :", position);
     // console.log("camera :", camera);
     // }, 50);
-    let stop = true;
+    let moving = false;
     window.addEventListener(
       "touchstart",
       function() {
         setInterval(() => {
-          if (!stop) return;
-          stop = false;
+          if (moving) return;
+          moving = true;
           const position = camera.getAttribute("position");
           const rotation = camera.getAttribute("rotation");
-          // console.log("rotation :", rotation);
+          console.log("rotation :", rotation);
           position.x += -Math.cos(((rotation.y - 90) * Math.PI) / 180) * speed;
           position.z += Math.sin(((rotation.y - 90) * Math.PI) / 180) * speed;
           camera.setAttribute("position", position);
@@ -131,7 +131,7 @@
     window.addEventListener(
       "touchend",
       function() {
-        stop = false;
+        moving = false;
       },
       false
     );
