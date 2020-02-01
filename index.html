@@ -428,14 +428,15 @@
         let position = camera.getAttribute("position");
         let rotation = camera.getAttribute("rotation");
         something.value = `${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`;
+        something.value = `START ${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`;
+        console.log("START :", something);
+
         position.x += event.acceleration.x;
         position.z += event.acceleration.y;
         camera.setAttribute("position", position);
       }
     });
     console.log("START :");
-    console.log("START :", something);
-    something.value = `START ${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`;
     console.log("START :", something);
   </script>
 </html>
