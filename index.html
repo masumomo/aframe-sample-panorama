@@ -40,8 +40,7 @@
     
   const handleOrientation = (event) => {
     console.log("START :", handleOrientation);
-    something.setAttribute('value',"SET UP! handleOrientation");
-    deviceorientation.setAttribute('value',"SET UP! handleOrientation");
+    // something.setAttribute('value',"SET UP! handleOrientation");
     
     deviceorientation.setAttribute('value', `START deviceorientation ${event.alpha} / ${event.beta} / ${event.gamma}`);
 
@@ -72,7 +71,7 @@
     window.addEventListener("devicemotion", handleMotion, true);
     
     console.log("START3-1 :", something.getAttribute("value"));
-    something.setAttribute('value',"SET UP!");
+    something.setAttribute('value',"SET UP!!!");
     console.log("START1-1 :", devicemotion);
     console.log("START2-1 :", deviceorientation); 
     console.log("START3-2 :", something.getAttribute("value"));
