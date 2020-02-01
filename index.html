@@ -49,7 +49,7 @@
   const devicemotion2 = document.body.querySelector("#devicemotion2");
   const deviceorientation = document.body.querySelector("#deviceorientation");
     
-const speed = 0.01;
+const speed = 0.1;
   const handleOrientation = (event) => {
     console.log("START :", handleOrientation);
     deviceorientation.setAttribute('value', `START deviceorientation ${event.alpha} / ${event.beta} / ${event.gamma}`);
@@ -84,7 +84,7 @@ const speed = 0.01;
     window.addEventListener("devicemotion", handleMotion, true);
     
     console.log("START3-1 :", something.getAttribute("value"));
-    something.setAttribute('value',"SET UP!--");
+    something.setAttribute('value',"SET UP!");
     console.log("START1-1 :", devicemotion);
     console.log("START2-1 :", deviceorientation); 
     console.log("START3-2 :", something.getAttribute("value"));
