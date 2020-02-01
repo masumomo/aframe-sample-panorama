@@ -97,20 +97,44 @@
       }
     };
 
-    setInterval(() => {
-      const position = camera.getAttribute("position");
-      const rotation = camera.getAttribute("rotation");
-      // console.log("rotation :", rotation);
-      position.x += -Math.cos(((rotation.y - 90) * Math.PI) / 180) * speed;
-      position.z += Math.sin(((rotation.y - 90) * Math.PI) / 180) * speed;
-      camera.setAttribute("position", position);
-      devicemotionX.setAttribute("position", position);
-      // devicemotionY.setAttribute("position", position);
-      // devicemotionZ.setAttribute("position", position);
-      // console.log("position :", position);
-      // console.log("camera :", camera);
-    }, 50);
+    // setInterval(() => {
+    const position = camera.getAttribute("position");
+    const rotation = camera.getAttribute("rotation");
+    // console.log("rotation :", rotation);
+    position.x += -Math.cos(((rotation.y - 90) * Math.PI) / 180) * speed;
+    position.z += Math.sin(((rotation.y - 90) * Math.PI) / 180) * speed;
+    camera.setAttribute("position", position);
+    // devicemotionX.setAttribute("position", position);
+    // devicemotionY.setAttribute("position", position);
+    // devicemotionZ.setAttribute("position", position);
+    // console.log("position :", position);
+    // console.log("camera :", camera);
+    // }, 50);
+    let stop = true;
+    window.addEventListener(
+      "touchstart",
+      function() {
+        setInterval(() => {
+          if (!stop) return;
+          stop = false;
+          const position = camera.getAttribute("position");
+          const rotation = camera.getAttribute("rotation");
+          // console.log("rotation :", rotation);
+          position.x += -Math.cos(((rotation.y - 90) * Math.PI) / 180) * speed;
+          position.z += Math.sin(((rotation.y - 90) * Math.PI) / 180) * speed;
+          camera.setAttribute("position", position);
+        }, 50);
+      },
+      false
+    );
 
+    window.addEventListener(
+      "touchend",
+      function() {
+        stop = false;
+      },
+      false
+    );
     window.addEventListener("deviceorientation", handleOrientation, true);
     window.addEventListener("devicemotion", handleMotion, true);
 
