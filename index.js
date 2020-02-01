@@ -1,51 +1,37 @@
-"use strict";
+require("aframe");
 
-$(".request_permission").on("click", function() {
-  console.log("DeviceMotionEvent :", DeviceMotionEvent);
-  console.log("DeviceOrientationEvent :", DeviceOrientationEvent);
-  if (
-    DeviceMotionEvent &&
-    DeviceMotionEvent.requestPermission &&
-    typeof DeviceMotionEvent.requestPermission === "function"
-  ) {
-    DeviceMotionEvent.requestPermission();
-  }
-  if (
-    DeviceOrientationEvent &&
-    DeviceOrientationEvent.requestPermission &&
-    typeof DeviceOrientationEvent.requestPermission === "function"
-  ) {
-    DeviceOrientationEvent.requestPermission();
+var t = 0;
+var speed = 0.01;
+var isIntersect = false;
+
+AFRAME.registerComponent("collider-check", {
+  dependencies: ["raycaster"],
+  init: function() {
+    this.el.addEventListener("raycaster-intersection", function() {
+      isIntersect = true;
+    });
+    this.el.addEventListener("raycaster-intersection-cleared", function() {
+      isIntersect = false;
+    });
   }
 });
 
-// AFRAME.registerComponent("rotation-reader", {
-//   tick: function() {
-//     var position = new THREE.Vector3();
-//     var quaternion = new THREE.Quaternion();
+function movePlayer() {
+  var camera = document.getElementById("camera");
 
-//     return function() {
-//       this.el.object3D.getWorldPosition(position);
-//       this.el.object3D.getWorldQuaternion(quaternion);
-//       // position and rotation now contain vector and quaternion in world space.
-//     };
-//   }
-// });
+  if (camera && !isIntersect) {
+    var position = camera.getAttribute("position");
+    var rotation = camera.getAttribute("rotation");
 
-const something = document.body.querySelector("#something");
-window.addEventListener("devicemotion", function(event) {
-  console.log(event.acceleration.x + " m/s2");
-  let camera = document.getElementById("camera");
-
-  if (camera) {
-    let position = camera.getAttribute("position");
-    let rotation = camera.getAttribute("rotation");
-    something.value = `${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`;
-    position.x += event.acceleration.x;
-    position.z += event.acceleration.y;
+    position.x += -Math.cos(((rotation.y - 90) * Math.PI) / 180) * speed;
+    position.z += Math.sin(((rotation.y - 90) * Math.PI) / 180) * speed;
     camera.setAttribute("position", position);
   }
-});
-console.log("START :");
-console.log("START :", something.value);
-something.value = `START ${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`;
+}
+
+function render() {
+  t += 0.01;
+  requestAnimationFrame(render);
+  movePlayer();
+}
+render();
