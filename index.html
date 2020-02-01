@@ -20,6 +20,13 @@
         color="black"
       ></a-text>
 
+      <a-text
+        id="something"
+        position="2 -3 3"
+        value="deviceorientation"
+        color="black"
+      ></a-text>
+
       <a-sky
         src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg"
         rotation="0 0 0"
@@ -27,23 +34,29 @@
     </a-scene>
   </body>
   <script>
+  const something = document.body.querySelector("#something");
   const devicemotion = document.body.querySelector("#devicemotion");
   const deviceorientation = document.body.querySelector("#deviceorientation");
     
   const handleOrientation = (event) => {
+    console.log("START :", handleOrientation);
+    something.value = `START handleOrientation`;
+    
     deviceorientation.value = `START deviceorientation ${event.alpha} / ${event.beta} / ${event.gamma}`;
 
   }
 
   const handleMotion = (event) =>{
+    console.log("START :", handleMotion);
+    something.value = `START devicemotion`;
+        
     console.log(event.acceleration.x + " m/s2");
     let camera = document.getElementById("camera");
 
       if (camera) {
         let position = camera.getAttribute("position");
         let rotation = camera.getAttribute("rotation");
-        devicemotion.value = `${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`;
-        devicemotion.value = `START ${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`;
+        devicemotion.value = `START devicemotion ${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`;
         console.log("START :", devicemotion);
 
         position.x += event.acceleration.x;
@@ -57,6 +70,7 @@
     window.addEventListener("devicemotion", handleMotion, true);
     
 
+    something.value = `SET UP!`;
     console.log("START1 :", devicemotion);
     console.log("START2 :", deviceorientation);
   </script>
