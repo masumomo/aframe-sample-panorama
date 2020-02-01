@@ -5,88 +5,103 @@
   <body>
     <a-scene>
       <a-entity id="maze" position="-4 1 -10">
+        <a-text
+          position="0 0 0"
+          value="teststringteststringteststringteststringteststring"
+          color="black"
+        ></a-text>
+        <a-text
+          id="devicemotion"
+          position="1 1 1"
+          value="devicemotion"
+          color="black"
+        ></a-text>
 
-      <a-text
-        id="devicemotion"
-        position="2 2 3"
-        value="devicemotion"
-        color="black"
-      ></a-text>
+        <a-text
+          id="devicemotion2"
+          position="1 1.5 1"
+          value="devicemotion"
+          color="black"
+        ></a-text>
 
-      <a-text
-        id="devicemotion2"
-        position="2 1 3"
-        value="devicemotion"
-        color="black"
-      ></a-text>
+        <a-text
+          id="deviceorientation"
+          position="1 2 1"
+          value="deviceorientation"
+          color="black"
+        ></a-text>
 
-      <a-text
-        id="deviceorientation"
-        position="2 0 3"
-        value="deviceorientation"
-        color="black"
-      ></a-text>
+        <a-text
+          id="something"
+          position="1 2.5 1"
+          value="something"
+          color="black"
+        ></a-text>
 
-      <a-text
-        id="something"
-        position="2 -1 3"
-        value="something"
-        color="black"
-      ></a-text>
-
-      <a-sky
-        src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg"
-        rotation="0 0 0"
-        opacity="0.5"
-      ></a-sky> 
-      <a-entity id="camera">
+        <a-sky
+          src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg"
+          rotation="0 0 0"
+          opacity="0.5"
+        ></a-sky>
+        <a-camera position="0 0 0"></a-camera>
+        <!-- <a-entity id="camera" position="0 0 0"> <a-camera></a-camera></a-entity> -->
+        <!-- <a-entity id="camera" position="0 0 0">
+          <a-camera></a-camera>
+        </a-entity> -->
       </a-entity>
     </a-scene>
   </body>
   <script>
-  const something = document.body.querySelector("#something");
-  const devicemotion = document.body.querySelector("#devicemotion");
-  const devicemotion2 = document.body.querySelector("#devicemotion2");
-  const deviceorientation = document.body.querySelector("#deviceorientation");
-    
-const speed = 0.1;
-  const handleOrientation = (event) => {
-    console.log("START :", handleOrientation);
-    deviceorientation.setAttribute('value', `START deviceorientation ${event.alpha} / ${event.beta} / ${event.gamma}`);
+    const something = document.body.querySelector("#something");
+    const devicemotion = document.body.querySelector("#devicemotion");
+    const devicemotion2 = document.body.querySelector("#devicemotion2");
+    const deviceorientation = document.body.querySelector("#deviceorientation");
+    const camera = document.getElementById("camera");
 
-  }
+    const speed = 0.1;
+    const handleOrientation = event => {
+      console.log("START :", handleOrientation);
+      deviceorientation.setAttribute(
+        "value",
+        `START deviceorientation ${event.alpha} / ${event.beta} / ${event.gamma}`
+      );
+    };
 
-  const handleMotion = (event) =>{
-    console.log("START :", handleMotion);
-    
-    something.setAttribute('value',"SET UP! handleMotion");
-    devicemotion.setAttribute('value',"SET UP! handleMotion");
-    let camera = document.getElementById("camera");
-    devicemotion.setAttribute('value',`START devicemotion1 ${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`);
-    devicemotion2.setAttribute('value',`START devicemotion2 ${event.rotationRate.alpha} / ${event.rotationRate.beta} / ${event.rotationRate.gamma}`);
-      
-    if (camera) {
-      let position = camera.getAttribute("position");
-      let rotation = camera.getAttribute("rotation");
+    const handleMotion = event => {
+      console.log("START :", handleMotion);
 
-      // position.x += event.acceleration.x;
-      // position.z += event.acceleration.y;
+      something.setAttribute("value", "SET UP! handleMotion");
+      devicemotion.setAttribute("value", "SET UP! handleMotion");
+      devicemotion.setAttribute(
+        "value",
+        `START devicemotion1 ${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`
+      );
+      devicemotion2.setAttribute(
+        "value",
+        `START devicemotion2 ${event.rotationRate.alpha} / ${event.rotationRate.beta} / ${event.rotationRate.gamma}`
+      );
 
-      position.x += -Math.cos((rotation.y - 90) * Math.PI / 180) * speed;
-      position.z += Math.sin((rotation.y - 90) * Math.PI / 180) * speed;
-      
-      camera.setAttribute("position", position);
-    }
-  }
+      if (camera) {
+        let position = camera.getAttribute("position");
+        let rotation = camera.getAttribute("rotation");
 
+        // position.x += event.acceleration.x;
+        // position.z += event.acceleration.y;
+
+        position.x += -Math.cos(((rotation.y - 90) * Math.PI) / 180) * speed;
+        position.z += Math.sin(((rotation.y - 90) * Math.PI) / 180) * speed;
+
+        camera.setAttribute("position", position);
+      }
+    };
 
     window.addEventListener("deviceorientation", handleOrientation, true);
     window.addEventListener("devicemotion", handleMotion, true);
-    
+
     console.log("START3-1 :", something.getAttribute("value"));
-    something.setAttribute('value',"SET UP!");
+    something.setAttribute("value", "SET UP!");
     console.log("START1-1 :", devicemotion);
-    console.log("START2-1 :", deviceorientation); 
+    console.log("START2-1 :", deviceorientation);
     console.log("START3-2 :", something.getAttribute("value"));
   </script>
 </html>
