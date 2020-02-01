@@ -27,14 +27,17 @@
     </a-scene>
   </body>
   <script>
-    const devicemotion = document.body.querySelector("#devicemotion");
-    const deviceorientation = document.body.querySelector("#deviceorientation");
+  const devicemotion = document.body.querySelector("#devicemotion");
+  const deviceorientation = document.body.querySelector("#deviceorientation");
     
-    window.addEventListener("deviceorientation", handleOrientation, true);
-    
-    window.addEventListener("devicemotion", function(event) {
-      console.log(event.acceleration.x + " m/s2");
-      let camera = document.getElementById("camera");
+  const handleOrientation = (event) => {
+    deviceorientation.value = `START deviceorientation ${event.alpha} / ${event.beta} / ${event.gamma}`;
+
+  }
+
+  const handleMotion = (event) =>{
+    console.log(event.acceleration.x + " m/s2");
+    let camera = document.getElementById("camera");
 
       if (camera) {
         let position = camera.getAttribute("position");
@@ -47,14 +50,13 @@
         position.z += event.acceleration.y;
         camera.setAttribute("position", position);
       }
-    });
+  }
 
-    window.addEventListener("deviceorientation", function(event) {
 
-      if (camera) {
-        deviceorientation.value = `START ${event.alpha} / ${event.beta} / ${event.gamma}`;
-      }
-    });
+    window.addEventListener("deviceorientation", handleOrientation, true);
+    window.addEventListener("devicemotion", handleMotion, true);
+    
+
     console.log("START1 :", devicemotion);
     console.log("START2 :", deviceorientation);
   </script>
