@@ -44,11 +44,12 @@
     </a-scene>
   </body>
   <script>
-  let something = document.body.querySelector("#something");
-  let devicemotion = document.body.querySelector("#devicemotion");
-  let devicemotion2 = document.body.querySelector("#devicemotion2");
-  let deviceorientation = document.body.querySelector("#deviceorientation");
+  const something = document.body.querySelector("#something");
+  const devicemotion = document.body.querySelector("#devicemotion");
+  const devicemotion2 = document.body.querySelector("#devicemotion2");
+  const deviceorientation = document.body.querySelector("#deviceorientation");
     
+const speed = 0.01;
   const handleOrientation = (event) => {
     console.log("START :", handleOrientation);
     deviceorientation.setAttribute('value', `START deviceorientation ${event.alpha} / ${event.beta} / ${event.gamma}`);
@@ -68,8 +69,12 @@
       let position = camera.getAttribute("position");
       let rotation = camera.getAttribute("rotation");
 
-      position.x += event.acceleration.x;
-      position.z += event.acceleration.y;
+      // position.x += event.acceleration.x;
+      // position.z += event.acceleration.y;
+
+      position.x += -Math.cos((rotation.y - 90) * Math.PI / 180) * speed;
+      position.z += Math.sin((rotation.y - 90) * Math.PI / 180) * speed;
+        
       camera.setAttribute("position", position);
     }
   }
