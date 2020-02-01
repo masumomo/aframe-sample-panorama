@@ -96,9 +96,16 @@
         // position.x += event.acceleration.x;
         // position.z += event.acceleration.y;
 
-        position.x += -Math.cos(((rotation.y - 90) * Math.PI) / 180) * speed;
-        position.z += Math.sin(((rotation.y - 90) * Math.PI) / 180) * speed;
-
+        // position.x += -Math.cos(((rotation.y - 90) * Math.PI) / 180) * speed;
+        // position.z += Math.sin(((rotation.y - 90) * Math.PI) / 180) * speed;
+        devicemotion.setAttribute(
+          "value",
+          `START devicemotion1-1 ${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`
+        );
+        devicemotion2.setAttribute(
+          "value",
+          `START devicemotion2-1 ${event.rotationRate.alpha} / ${event.rotationRate.beta} / ${event.rotationRate.gamma}`
+        );
         camera.setAttribute("position", position);
       }
     };
@@ -107,7 +114,7 @@
     window.addEventListener("devicemotion", handleMotion, true);
 
     console.log("START3-1 :", something.getAttribute("value"));
-    something.setAttribute("value", "SET UP");
+    something.setAttribute("value", "SET UP!");
     console.log("START1-1 :", devicemotion);
     console.log("START2-1 :", deviceorientation);
     console.log("START3-2 :", something.getAttribute("value"));
