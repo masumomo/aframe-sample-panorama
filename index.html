@@ -7,7 +7,7 @@
       <a-entity id="maze" position="-4 1 -10">
         <a-text
           position="0 -1.8 0"
-          id="devicemotion"
+          id="devicemotionX"
           rotation="-90 0 0"
           value="devicemotion"
           color="black"
@@ -15,14 +15,14 @@
 
         <a-text
           position="0 -1.8 0.4"
-          id="devicemotion2"
+          id="devicemotionY"
           rotation="-90 0 0"
           value="devicemotion2"
           color="black"
         ></a-text>
 
         <a-text
-          id="something"
+          id="devicemotionZ"
           position="0 -1.8 -0.8"
           rotation="-90 0 0"
           value="something"
@@ -53,8 +53,9 @@
   </body>
   <script>
     const something = document.body.querySelector("#something");
-    const devicemotion = document.body.querySelector("#devicemotion");
-    const devicemotion2 = document.body.querySelector("#devicemotion2");
+    const devicemotionX = document.body.querySelector("#devicemotionX");
+    const devicemotionY = document.body.querySelector("#devicemotionY");
+    const devicemotionZ = document.body.querySelector("#devicemotionZ");
     const deviceorientation = document.body.querySelector("#deviceorientation");
     const camera = document.getElementById("camera");
 
@@ -71,7 +72,7 @@
       console.log("START :", handleMotion);
 
       something.setAttribute("value", "SET UP! handleMotion");
-      devicemotion.setAttribute("value", "SET UP! handleMotion");
+      devicemotionX.setAttribute("value", "SET UP! handleMotion");
 
       if (camera) {
         let position = camera.getAttribute("position");
@@ -94,10 +95,9 @@
         const x = Math.floor(event.acceleration.x * 100) / 100;
         const y = Math.floor(event.acceleration.y * 100) / 100;
         const z = Math.floor(event.acceleration.z * 100) / 100;
-        devicemotion.setAttribute(
-          "value",
-          `START devicemotion1-1 ${x} / ${y} / ${z}`
-        );
+        devicemotionX.setAttribute("value", `START devicemotion1-X ${x} `);
+        devicemotionY.setAttribute("value", `START devicemotion Y ${y} `);
+        devicemotionZ.setAttribute("value", `START devicemotion Z ${z}`);
         camera.setAttribute("position", position);
       }
     };
