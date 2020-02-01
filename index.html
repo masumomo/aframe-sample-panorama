@@ -9,7 +9,7 @@
           position="0 -1.8 0"
           id="devicemotionX"
           rotation="-90 0 0"
-          value="devicemotion"
+          value="devicemotionX"
           color="black"
         ></a-text>
 
@@ -17,7 +17,7 @@
           position="0 -1.8 0.4"
           id="devicemotionY"
           rotation="-90 0 0"
-          value="devicemotion2"
+          value="devicemotionY"
           color="black"
         ></a-text>
 
@@ -25,7 +25,7 @@
           id="devicemotionZ"
           position="0 -1.8 -0.8"
           rotation="-90 0 0"
-          value="something"
+          value="devicemotionZ"
           color="black"
         ></a-text>
 
@@ -56,23 +56,23 @@
     const devicemotionX = document.body.querySelector("#devicemotionX");
     const devicemotionY = document.body.querySelector("#devicemotionY");
     const devicemotionZ = document.body.querySelector("#devicemotionZ");
-    const deviceorientation = document.body.querySelector("#deviceorientation");
+    // const deviceorientation = document.body.querySelector("#deviceorientation");
     const camera = document.getElementById("camera");
 
     const speed = 1;
     const handleOrientation = event => {
       console.log("START :", handleOrientation);
-      deviceorientation.setAttribute(
-        "value",
-        `START deviceorientation ${event.alpha} / ${event.beta} / ${event.gamma}`
-      );
+      // deviceorientation.setAttribute(
+      //   "value",
+      //   `START deviceorientation ${event.alpha} / ${event.beta} / ${event.gamma}`
+      // );
     };
 
     const handleMotion = event => {
       console.log("START :", handleMotion);
 
-      something.setAttribute("value", "SET UP! handleMotion");
-      devicemotionX.setAttribute("value", "SET UP! handleMotion");
+      // something.setAttribute("value", "SET UP! handleMotion");
+      // devicemotionX.setAttribute("value", "SET UP! handleMotion");
 
       if (camera) {
         let position = camera.getAttribute("position");
@@ -105,6 +105,9 @@
     window.addEventListener("deviceorientation", handleOrientation, true);
     window.addEventListener("devicemotion", handleMotion, true);
 
+    devicemotionX.setAttribute("value", `START X  `);
+    devicemotionY.setAttribute("value", `START Y  `);
+    devicemotionZ.setAttribute("value", `START Z `);
     console.log("START1-1 :", devicemotionX);
     console.log("START1-1 :", devicemotionY);
     console.log("START1-1 :", devicemotionZ);
