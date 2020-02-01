@@ -1,10 +1,34 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
   </head>
   <body>
     <a-scene>
+      <a-assets>
+        <a-asset-item id="crate-obj" src="crate.obj"></a-asset-item>
+        <a-asset-item id="crate-mtl" src="crate.mtl"></a-asset-item>
+      </a-assets>
+
+      <!-- Using the asset management system. -->
+
+      <!-- Defining the URL inline. Not recommended but may be more comfortable. -->
+      <!-- <a-obj-model src="crate.obj" mtl="crate.mtl"></a-obj-model> -->
+
+      <a-entity
+        environment="preset: forest; groundColor: #445; grid: none; ground: canyon;groundTexture: walkernoise;dressing:none"
+      ></a-entity>
+      <!-- GROUND:none, flat, hills, canyon, spikes, noise -->
+      <!-- environment:Valid values: none, default, contact, egypt, checkerboard, forest, goaland, yavapai, goldmine, 
+      threetowers, poison, arches, tron, japan, dream, volcano, starry, osiris -->
+      <!-- groundTexture none, checkerboard, squares, walkernoise -->
+      <!-- dressing Valid values: none, cubes, pyramids, cylinders, towers, mushrooms, trees, apparatus, torii. -->
       <a-entity id="maze" position="-4 1 -10">
+        <a-obj-model
+          position="6 -8 10"
+          src="#crate-obj"
+          mtl="#crate-mtl"
+        ></a-obj-model>
         <a-text
           position="-0.4 -1.5 0"
           id="devicemotionX"
@@ -59,7 +83,7 @@
     // const deviceorientation = document.body.querySelector("#deviceorientation");
     const camera = document.getElementById("camera");
 
-    const speed = 1;
+    const speed = 0.01;
     const handleOrientation = event => {
       console.log("START :", handleOrientation);
       // deviceorientation.setAttribute(
@@ -116,7 +140,7 @@
     //   function() {
     setInterval(() => {
       // if (moving) return;
-      moving = true;
+      // moving = true;d
       const position = camera.getAttribute("position");
       const rotation = camera.getAttribute("rotation");
       console.log("rotation :", rotation);
@@ -127,7 +151,7 @@
     // },
     // false
     // );
-
+    //
     // window.addEventListener(
     // "touchend",
     // function() {
@@ -137,7 +161,10 @@
     // );
     window.addEventListener("deviceorientation", handleOrientation, true);
     window.addEventListener("devicemotion", handleMotion, true);
+    //とりあえずオブジェクトを作って移動は諦める　ジャンプは可能（リンク）
+    //ワンダーランド的な
 
+    //移動できるようにする。
     devicemotionX.setAttribute("value", `START X  `);
     devicemotionY.setAttribute("value", `START Y  `);
     devicemotionZ.setAttribute("value", `START Z `);
