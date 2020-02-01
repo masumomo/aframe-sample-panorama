@@ -32,6 +32,7 @@ $(".request_permission").on("click", function() {
 //   }
 // });
 
+const something = document.body.querySelector("#something");
 window.addEventListener("devicemotion", function(event) {
   console.log(event.acceleration.x + " m/s2");
   let camera = document.getElementById("camera");
@@ -39,9 +40,12 @@ window.addEventListener("devicemotion", function(event) {
   if (camera) {
     let position = camera.getAttribute("position");
     let rotation = camera.getAttribute("rotation");
-
+    something.value = `${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`;
     position.x += event.acceleration.x;
     position.z += event.acceleration.y;
     camera.setAttribute("position", position);
   }
 });
+console.log("START :");
+console.log("START :", something.value);
+something.value = `START ${event.acceleration.x} / ${event.acceleration.y} / ${event.acceleration.z}`;
