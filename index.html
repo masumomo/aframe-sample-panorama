@@ -1,425 +1,121 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>A-Frame Sample VR-Maze</title>
-    <meta name="description" content="A-Frame Sample VR-Maze<" />
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
   </head>
   <body>
     <a-scene>
       <a-entity id="maze" position="-4 1 -10">
-        <a-box
-          class="collidable"
-          position="0 0 0"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="0 0 1"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="0 0 2"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="0 0 3"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="0 0 4"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="0 0 5"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="0 0 6"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="0 0 7"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="0 0 8"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="1 0 2"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="1 0 5"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="1 0 6"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="1 0 8"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="2 0 0"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="2 0 2"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="2 0 3"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="2 0 8"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="3 0 0"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="3 0 4"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="3 0 5"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="3 0 7"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="3 0 8"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="4 0 0"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="4 0 1"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="4 0 2"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="4 0 4"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="4 0 5"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="5 0 0"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="5 0 2"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="5 0 5"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="5 0 7"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="5 0 8"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="6 0 0"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="6 0 2"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="6 0 3"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="6 0 5"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="6 0 8"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="7 0 0"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="7 0 7"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="7 0 8"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="8 0 0"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="8 0 1"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="8 0 2"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="8 0 3"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="8 0 4"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="8 0 5"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="8 0 6"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="8 0 7"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-        <a-box
-          class="collidable"
-          position="8 0 8"
-          width="1"
-          height="2"
-          depth="1"
-          color="#4CC3D9"
-        ></a-box>
-      </a-entity>
-      <a-plane
-        rotation="-90 0 0"
-        width="100"
-        height="100"
-        color="#7BC8A4"
-        static
-      ></a-plane>
+        <a-text
+          position="-0.4 -1.5 0"
+          id="devicemotionX"
+          rotation="-90 0 0"
+          value="devicemotionX"
+          color="black"
+        ></a-text>
 
-      <a-sky color="#ECECEC"></a-sky>
-      <a-entity
-        id="camera"
-        camera
-        look-controls
-        raycaster="objects: .collidable; far: 0.5;"
-        collider-check
-        rotation="0 0 0"
-        position="0 0.3 0"
-      ></a-entity>
+        <a-text
+          position="-0.4 -1.5 0.4"
+          id="devicemotionY"
+          rotation="-90 0 0"
+          value="devicemotionY"
+          color="black"
+        ></a-text>
+
+        <a-text
+          id="devicemotionZ"
+          position="-0.4 -1.5 0.8"
+          rotation="-90 0 0"
+          value="devicemotionZ"
+          color="black"
+        ></a-text>
+
+        <a-sky
+          src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg"
+          position="0 0 0"
+          rotation="0 0 0"
+          opacity="0.5"
+        ></a-sky>
+        <a-entity
+          id="camera"
+          camera
+          look-controls
+          collider-check
+          rotation="0 0 0"
+          position="0 0 0"
+        ></a-entity>
+
+        <!-- <a-entity id="camera" position="0 0 0"> <a-camera></a-camera></a-entity> -->
+        <!-- <a-entity id="camera" position="0 0 0">
+          <a-camera></a-camera>
+        </a-entity> -->
+      </a-entity>
     </a-scene>
   </body>
+  <script>
+    const something = document.body.querySelector("#something");
+    const devicemotionX = document.body.querySelector("#devicemotionX");
+    const devicemotionY = document.body.querySelector("#devicemotionY");
+    const devicemotionZ = document.body.querySelector("#devicemotionZ");
+    // const deviceorientation = document.body.querySelector("#deviceorientation");
+    const camera = document.getElementById("camera");
+
+    const speed = 1;
+    const handleOrientation = event => {
+      console.log("START :", handleOrientation);
+      // deviceorientation.setAttribute(
+      //   "value",
+      //   `START deviceorientation ${event.alpha} / ${event.beta} / ${event.gamma}`
+      // );
+    };
+
+    const handleMotion = event => {
+      console.log("START :", handleMotion);
+
+      // something.setAttribute("value", "SET UP! handleMotion");
+      // devicemotionX.setAttribute("value", "SET UP! handleMotion");
+
+      if (camera) {
+        let position = camera.getAttribute("position");
+        let rotation = camera.getAttribute("rotation");
+        // devicemotion.setAttribute(
+        //   "value",
+        `START position.x ${Math.cos(((rotation.y - 90) * Math.PI) / 180) *
+          speed} ` //   "value", // devicemotion2.setAttribute( // );
+        `START position.y ${MMath.sin(((rotation.y - 90) * Math.PI) / 180) *
+          speed} `;
+        // );
+        // position.x += event.acceleration.x;
+        // position.z += event.acceleration.y;
+
+        const x = Math.floor(event.acceleration.x * 10);
+        const y = Math.floor(event.acceleration.y * 10);
+        const z = Math.floor(event.acceleration.z * 10);
+        devicemotionX.setAttribute("value", `START X ${x} `);
+        devicemotionY.setAttribute("value", `START Y ${y} `);
+        devicemotionZ.setAttribute("value", `START Z ${z}`);
+        camera.setAttribute("position", position);
+      }
+    };
+
+    setInterval(() => {
+      const position = camera.getAttribute("position");
+      const rotation = camera.getAttribute("rotation");
+      console.log("rotation :", rotation);
+      position.x += -Math.cos(((rotation.y - 90) * Math.PI) / 180) * speed;
+      position.z += Math.sin(((rotation.y - 90) * Math.PI) / 180) * speed;
+      camera.setAttribute("position", position);
+      // console.log("position :", position);
+      // console.log("camera :", camera);
+    }, 100);
+
+    window.addEventListener("deviceorientation", handleOrientation, true);
+    window.addEventListener("devicemotion", handleMotion, true);
+
+    devicemotionX.setAttribute("value", `START X  `);
+    devicemotionY.setAttribute("value", `START Y  `);
+    devicemotionZ.setAttribute("value", `START Z `);
+    console.log("START1 :", devicemotionX);
+    console.log("START2 :", devicemotionY);
+    console.log("START3 :", devicemotionZ);
+  </script>
 </html>
