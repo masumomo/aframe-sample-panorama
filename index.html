@@ -21,14 +21,92 @@
       </a-assets>
 
       <a-entity
-        environment="preset: forest;  grid: none; ground: hills; groundTexture: walkernoise; groundColor:#ffffff; groundColor2:#f5feff; dressing:none;"
+        environment="skyType:gradient; horizonColor:#45527a;preset: forest;  grid: none; ground: hills; groundTexture: walkernoise; groundColor:#ffffff; groundColor2:#f5feff; dressing:none;"
       >
       </a-entity>
       <a-entity
         position="0 2.25 -15"
         particle-system="preset: snow; particleCount: 10000; size: 2"
       ></a-entity>
-      //Tree
+      <!-- Moon -->
+      <a-sphere position="15 30 -40"></a-sphere>
+      <!-- Tree -->
+      <a-entity class="tree-small" position="2.6 1.5 -1.6">
+        <a-cone
+          color="#416132"
+          height="0.8"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.4"
+          radius-top="0.001"
+          position="0 0 -0"
+        ></a-cone
+        ><a-cone
+          color="#416132"
+          height="0.9"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.5"
+          radius-top="0.001"
+          position="0 -0.3 -0"
+        ></a-cone
+        ><a-cone
+          color="#416132"
+          height="1"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.6"
+          radius-top="0.001"
+          position="0 -0.7 0"
+          roughness="1"
+        ></a-cone>
+        <a-cylinder
+          color="#8D4126"
+          height="0.6"
+          radius="0.1"
+          segments-height="0"
+          segments-radial="0"
+          position="0 -1.5 0"
+        ></a-cylinder>
+      </a-entity>
+      <a-entity class="tree-small" position="3.5 1.5 -2">
+        <a-cone
+          color="#416132"
+          height="0.8"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.4"
+          radius-top="0.001"
+          position="0 0 -0"
+        ></a-cone
+        ><a-cone
+          color="#416132"
+          height="0.9"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.5"
+          radius-top="0.001"
+          position="0 -0.3 -0"
+        ></a-cone
+        ><a-cone
+          color="#416132"
+          height="1"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.6"
+          radius-top="0.001"
+          position="0 -0.7 0"
+          roughness="1"
+        ></a-cone>
+        <a-cylinder
+          color="#8D4126"
+          height="0.6"
+          radius="0.1"
+          segments-height="0"
+          segments-radial="0"
+          position="0 -1.5 0"
+        ></a-cylinder>
+      </a-entity>
       <a-entity class="tree-small" position="-0.5 1.5 -2">
         <a-cone
           color="#416132"
@@ -181,9 +259,28 @@
           position="0 -1.5 0"
         ></a-cylinder>
       </a-entity>
-      //House //TODO
-      <a-entity class="house" position="-0.5 1.5 -3"> </a-entity>
-      //Kanban //TODO
+      <!-- House TODO -->
+      <a-entity class="house" position="3 1 -7" rotation="0 110 0">
+        <a-box height="4" width="5" depth="4" color="#8D4126"></a-box>
+
+        <a-box
+          position="0 3 1"
+          height="4.5"
+          width="5"
+          depth="0.3"
+          color="#ffffff"
+          rotation="-55 0 0"
+        ></a-box>
+        <a-box
+          position="0 3 -1"
+          height="4.5"
+          width="5"
+          depth="0.3"
+          color="#ffffff"
+          rotation="55 0 0"
+        ></a-box>
+      </a-entity>
+      <!-- Kanban TODO -->
       <a-entity class="kanban" position="-2.4 1 -2.7" rotation="0 30 10">
         <a-cylinder
           rotation="0 0 90"
@@ -215,7 +312,6 @@
             id="hello-world"
             rotation="2 0 0"
             value="Hello World"
-            color="black"
             font="aileronsemibold"
             width="4"
             color="#ffffff"
@@ -254,7 +350,7 @@
         font="aileronsemibold"
         width="80"
       ></a-text>
-      <a-text
+      <!-- <a-text
         position="-0.4 0 0"
         id="devicemotionX"
         rotation="-90 0 0"
@@ -280,19 +376,12 @@
         color="black"
         font="aileronsemibold"
         width="100"
-      ></a-text>
+      ></a-text> -->
 
       <!-- <a-light type="ambient" color="white"></a-light> -->
 
-      <a-sound
-        src="#fireworks"
-        loop="true"
-        volume="4"
-        autoplay="true"
-        position="-90 0 -50"
-      ></a-sound>
       <a-entity movement-controls position="0 0 0" rotation="10 0 0">
-        <a-entity camera position="0.5 1 1" look-controls></a-entity>
+        <a-entity camera position="0 1.4 5" look-controls></a-entity>
       </a-entity>
     </a-scene>
   </body>
