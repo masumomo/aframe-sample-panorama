@@ -1,7 +1,17 @@
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <!--
+    <script src="//rawgit.com/aframevr/aframe/cf15c15/dist/aframe-master.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
+    <script src="//unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+	  <script src="//rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+	  <script src="//unpkg.com/aframe-particle-system-component@1.1.3/dist/aframe-particle-system-component.min.js"></script>
+    -->
+    <script src="./js/aframe-master-cf15c15.min.js"></script>
+    <script src="./js/aframe-extras-5.0.0.min.js"></script>
+    <script src="./js/aframe-text-geometry-component-0.5.1.min.js"></script>
+    <script src="./js/aframe-environment-component-7528e44.min.js"></script>
+    <script src="./js/aframe-particle-system-component-1.1.3.min.js"></script>
   </head>
   <body>
     <a-scene>
@@ -10,68 +20,279 @@
         <a-asset-item id="crate-mtl" src="crate.mtl"></a-asset-item>
       </a-assets>
 
-      <!-- Using the asset management system. -->
-
-      <!-- Defining the URL inline. Not recommended but may be more comfortable. -->
-      <!-- <a-obj-model src="crate.obj" mtl="crate.mtl"></a-obj-model> -->
-
       <a-entity
-        environment="preset: forest; groundColor: #445; grid: none; ground: canyon;groundTexture: walkernoise;dressing:none"
+        environment="preset: forest;  grid: none; ground: hills; groundTexture: walkernoise; groundColor:#ffffff; groundColor2:#f5feff; dressing:none;"
+      >
+      </a-entity>
+      <a-entity
+        position="0 2.25 -15"
+        particle-system="preset: snow; particleCount: 10000; size: 2"
       ></a-entity>
-      <!-- GROUND:none, flat, hills, canyon, spikes, noise -->
-      <!-- environment:Valid values: none, default, contact, egypt, checkerboard, forest, goaland, yavapai, goldmine, 
-      threetowers, poison, arches, tron, japan, dream, volcano, starry, osiris -->
-      <!-- groundTexture none, checkerboard, squares, walkernoise -->
-      <!-- dressing Valid values: none, cubes, pyramids, cylinders, towers, mushrooms, trees, apparatus, torii. -->
-      <a-entity id="maze" position="-4 1 -10">
-        <a-obj-model
-          position="6 -8 10"
-          src="#crate-obj"
-          mtl="#crate-mtl"
-        ></a-obj-model>
-        <a-text
-          position="-0.4 -1.5 0"
-          id="devicemotionX"
-          rotation="-90 0 0"
-          value="devicemotionX"
-          color="black"
-        ></a-text>
+      //Tree
+      <a-entity class="tree-small" position="-0.5 1.5 -2">
+        <a-cone
+          color="#416132"
+          height="0.8"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.4"
+          radius-top="0.001"
+          position="0 0 -0"
+        ></a-cone
+        ><a-cone
+          color="#416132"
+          height="0.9"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.5"
+          radius-top="0.001"
+          position="0 -0.3 -0"
+        ></a-cone
+        ><a-cone
+          color="#416132"
+          height="1"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.6"
+          radius-top="0.001"
+          position="0 -0.7 0"
+          roughness="1"
+        ></a-cone>
+        <a-cylinder
+          color="#8D4126"
+          height="0.6"
+          radius="0.1"
+          segments-height="0"
+          segments-radial="0"
+          position="0 -1.5 0"
+        ></a-cylinder>
+      </a-entity>
+      <a-entity class="tree-small" position="0.5 1.5 -2">
+        <a-cone
+          color="#416132"
+          height="0.8"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.4"
+          radius-top="0.001"
+          position="0 0 -0"
+        ></a-cone
+        ><a-cone
+          color="#416132"
+          height="0.9"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.5"
+          radius-top="0.001"
+          position="0 -0.3 -0"
+        ></a-cone
+        ><a-cone
+          color="#416132"
+          height="1"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.6"
+          radius-top="0.001"
+          position="0 -0.7 0"
+          roughness="1"
+        ></a-cone>
+        <a-cylinder
+          color="#8D4126"
+          height="0.6"
+          radius="0.1"
+          segments-height="0"
+          segments-radial="0"
+          position="0 -1.5 0"
+        ></a-cylinder>
+      </a-entity>
+      <a-entity class="tree-small" position="0 1.5 -3.5">
+        <a-cone
+          color="#416132"
+          height="0.8"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.4"
+          radius-top="0.001"
+          position="0 0 -0"
+        ></a-cone
+        ><a-cone
+          color="#416132"
+          height="0.9"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.5"
+          radius-top="0.001"
+          position="0 -0.3 -0"
+        ></a-cone
+        ><a-cone
+          color="#416132"
+          height="1"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.6"
+          radius-top="0.001"
+          position="0 -0.7 0"
+          roughness="1"
+        ></a-cone>
+        <a-cylinder
+          color="#8D4126"
+          height="0.6"
+          radius="0.1"
+          segments-height="0"
+          segments-radial="0"
+          position="0 -1.5 0"
+        ></a-cylinder>
+      </a-entity>
+      <a-entity class="tree-small" position="0.5 1.5 -3">
+        <a-cone
+          color="#416132"
+          height="0.8"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.4"
+          radius-top="0.001"
+          position="0 0 -0"
+        ></a-cone
+        ><a-cone
+          color="#416132"
+          height="0.9"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.5"
+          radius-top="0.001"
+          position="0 -0.3 -0"
+        ></a-cone
+        ><a-cone
+          color="#416132"
+          height="1"
+          segments-height="0"
+          segments-radial="15"
+          radius-bottom="0.6"
+          radius-top="0.001"
+          position="0 -0.7 0"
+          roughness="1"
+        ></a-cone>
+        <a-cylinder
+          color="#8D4126"
+          height="0.6"
+          radius="0.1"
+          segments-height="0"
+          segments-radial="0"
+          position="0 -1.5 0"
+        ></a-cylinder>
+      </a-entity>
+      //House //TODO
+      <a-entity class="house" position="-0.5 1.5 -3"> </a-entity>
+      //Kanban //TODO
+      <a-entity class="kanban" position="-2.4 1 -2.7" rotation="0 30 10">
+        <a-cylinder
+          rotation="0 0 90"
+          radius="0.1"
+          height="1"
+          position="0 0.43 0"
+          depth="0.1"
+          color="#8D4126"
+          geometry="segmentsRadial: 0;"
+        ></a-cylinder
+        ><a-cylinder
+          rotation="0 0 90"
+          position="0 -0.5 0"
+          radius="0.1"
+          height="1"
+          depth="0.1"
+          color="#8D4126"
+          geometry="segmentsRadial: 0;"
+        ></a-cylinder>
+        <a-box
+          position="0 -0.04 0"
+          height="0.8"
+          width="1"
+          depth="0.05"
+          color="#8D4126"
+          map="bricks"
+          ><a-text
+            position="-0.46 0 0.05"
+            id="hello-world"
+            rotation="2 0 0"
+            value="Hello World"
+            color="black"
+            font="aileronsemibold"
+            width="4"
+            color="#ffffff"
+          ></a-text
+        ></a-box>
+        <a-cylinder
+          position="-0.6 -0.34 0"
+          radius="0.1"
+          height="1.7"
+          depth="0.1"
+          color="#8D4126"
+          geometry="segmentsRadial: 0;"
+        ></a-cylinder>
+        <a-cylinder
+          position="0.6 -0.34 0"
+          radius="0.1"
+          height="1.7"
+          depth="0.1"
+          color="#8D4126"
+          map="bricks"
+          geometry="segmentsRadial: 0;"
+        ></a-cylinder>
+      </a-entity>
+      <a-obj-model
+        position="6 -8 10"
+        src="#crate-obj"
+        mtl="#crate-mtl"
+        width="200"
+      ></a-obj-model>
+      <a-text
+        position="-10 5 -5"
+        id="devicemotionX"
+        rotation="0 0 0"
+        value="Hello World!"
+        color="#1f2b47"
+        font="aileronsemibold"
+        width="80"
+      ></a-text>
+      <a-text
+        position="-0.4 0 0"
+        id="devicemotionX"
+        rotation="-90 0 0"
+        value="devicemotionX"
+        color="black"
+        font="aileronsemibold"
+        width="100"
+      ></a-text>
+      <a-text
+        position="-0.4 0 0.4"
+        id="devicemotionY"
+        rotation="-90 0 0"
+        value="devicemotionY"
+        color="black"
+        font="aileronsemibold"
+        width="100"
+      ></a-text>
+      <a-text
+        id="devicemotionZ"
+        position="-0.4 0 0.8"
+        rotation="-90 0 0"
+        value="devicemotionZ"
+        color="black"
+        font="aileronsemibold"
+        width="100"
+      ></a-text>
 
-        <a-text
-          position="-0.4 -1.5 0.4"
-          id="devicemotionY"
-          rotation="-90 0 0"
-          value="devicemotionY"
-          color="black"
-        ></a-text>
+      <!-- <a-light type="ambient" color="white"></a-light> -->
 
-        <a-text
-          id="devicemotionZ"
-          position="-0.4 -1.5 0.8"
-          rotation="-90 0 0"
-          value="devicemotionZ"
-          color="black"
-        ></a-text>
-
-        <a-sky
-          src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg"
-          position="0 0 0"
-          rotation="0 0 0"
-          opacity="0.5"
-        ></a-sky>
-        <a-entity
-          id="camera"
-          camera
-          look-controls
-          collider-check
-          rotation="0 0 0"
-          position="0 0 0"
-        ></a-entity>
-
-        <!-- <a-entity id="camera" position="0 0 0"> <a-camera></a-camera></a-entity> -->
-        <!-- <a-entity id="camera" position="0 0 0">
-          <a-camera></a-camera>
-        </a-entity> -->
+      <a-sound
+        src="#fireworks"
+        loop="true"
+        volume="4"
+        autoplay="true"
+        position="-90 0 -50"
+      ></a-sound>
+      <a-entity movement-controls position="0 0 0" rotation="10 0 0">
+        <a-entity camera position="0.5 1 1" look-controls></a-entity>
       </a-entity>
     </a-scene>
   </body>
@@ -82,8 +303,27 @@
     const devicemotionZ = document.body.querySelector("#devicemotionZ");
     // const deviceorientation = document.body.querySelector("#deviceorientation");
     const camera = document.getElementById("camera");
+    const elements = document.querySelector("#my-image01-id");
+    var scene = document.querySelector("a-scene");
 
-    const speed = 0.01;
+    if (scene.hasLoaded) {
+      run();
+    } else {
+      scene.addEventListener("loaded", run);
+    }
+
+    function run() {
+      console.log("hello :");
+      // anime({
+      //   targets: elements,
+      //   left: "240px",
+      //   backgroundColor: "#FFF",
+      //   borderRadius: ["0%", "50%"],
+      //   easing: "easeInOutQuad"
+      // });
+    }
+
+    const speed = 0.001;
     const handleOrientation = event => {
       console.log("START :", handleOrientation);
       // deviceorientation.setAttribute(
@@ -138,16 +378,16 @@
     // window.addEventListener(
     //   "touchstart",
     //   function() {
-    setInterval(() => {
-      // if (moving) return;
-      // moving = true;d
-      const position = camera.getAttribute("position");
-      const rotation = camera.getAttribute("rotation");
-      console.log("rotation :", rotation);
-      position.x += -Math.cos(((rotation.y - 90) * Math.PI) / 180) * speed;
-      position.z += Math.sin(((rotation.y - 90) * Math.PI) / 180) * speed;
-      camera.setAttribute("position", position);
-    }, 50);
+    // setInterval(() => {
+    // if (moving) return;
+    // moving = true;d
+    // const position = camera.getAttribute("position");
+    // const rotation = camera.getAttribute("rotation");
+    // console.log("rotation :", rotation);
+    position.x += -Math.cos(((rotation.y - 90) * Math.PI) / 180) * speed;
+    position.z += Math.sin(((rotation.y - 90) * Math.PI) / 180) * speed;
+    camera.setAttribute("position", position);
+    // }, 50);
     // },
     // false
     // );
@@ -159,8 +399,8 @@
     // },
     // false
     // );
-    window.addEventListener("deviceorientation", handleOrientation, true);
-    window.addEventListener("devicemotion", handleMotion, true);
+    // window.addEventListener("deviceorientation", handleOrientation, true);
+    // window.addEventListener("devicemotion", handleMotion, true);
     //とりあえずオブジェクトを作って移動は諦める　ジャンプは可能（リンク）
     //ワンダーランド的な
 
